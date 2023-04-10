@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:checked="false"
+        android:checkable="false"
+        android:id="@+id/menu_chat_icon"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/ic_chat"/>
+    <item
+        android:checked="false"
+        android:checkable="false"
+        android:id="@+id/menu_global_search_icon"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/ic_world"/>
+    <item
+        android:checked="false"
+        android:checkable="false"
+        android:id="@+id/menu_recommendations_icon"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/ic_border_all"/>
+    <item
+        android:checked="false"
+        android:checkable="false"
+        android:id="@+id/menu_likes_icon"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/ic_heart"/>
+    <item
+        android:checked="false"
+        android:checkable="false"
+        android:id="@+id/menu_profile_icon"
+        android:enabled="true"
+        android:icon="@drawable/ic_user"
+        android:title="TODO" />
 </menu>
