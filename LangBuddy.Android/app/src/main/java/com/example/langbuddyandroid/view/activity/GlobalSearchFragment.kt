@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.langbuddyandroid.R
 import com.example.langbuddyandroid.databinding.FragmentGlobalSearchBinding
+import com.example.langbuddyandroid.model.User.User
+import com.example.langbuddyandroid.view.adapters.UsersAdapter
 
-class GlobalSearchFragment : Fragment() {
+class GlobalSearchFragment : Fragment(), UsersAdapter.Listener {
 
     private lateinit var bind: FragmentGlobalSearchBinding
+    private val usersAdapter = UsersAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +26,26 @@ class GlobalSearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         bind = FragmentGlobalSearchBinding.inflate(layoutInflater, container, false)
-
+        onLoadUsers()
         onClickMenu()
 
         return bind.root
+    }
+
+    private fun onLoadUsers(){
+        var users = mutableListOf<User>()
+
+        users = (1..20).map{
+            User(it)
+        }.toMutableList()
+
+        usersAdapter.submitList(users)
+        bind.container.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        bind.container.adapter =usersAdapter
     }
 
     private fun onClickMenu(){
@@ -51,5 +71,9 @@ class GlobalSearchFragment : Fragment() {
                 else -> false
             }
         }
+    }
+
+    override fun onClick(user: User) {
+        TODO("Not yet implemented")
     }
 }
